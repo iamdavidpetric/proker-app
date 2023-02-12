@@ -2,25 +2,30 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {
-      colors: {
-        primary: {
-          DEFAULT: '#1B263B',
-        },
-        secondary: {
-          DEFAULT: '#778DA9',
-        },
-        success: {
-          DEFAULT: '#40916c',
-        },
-        danger: {
-          DEFAULT: '#ef233c',
-        },
-        warning: {
-          DEFAULT: '#ffb703',
-        },
+    colors: {
+      white: {
+        DEFAULT: '#ffffff',
+      },
+      black: {
+        DEFAULT: '#000000',
+      },
+      primary: {
+        DEFAULT: '#1B263B',
+      },
+      secondary: {
+        DEFAULT: '#778DA9',
+      },
+      success: {
+        DEFAULT: '#40916c',
+      },
+      danger: {
+        DEFAULT: '#ef233c',
+      },
+      warning: {
+        DEFAULT: '#ffb703',
       },
     },
+    extend: {},
   },
   plugins: [],
 };
