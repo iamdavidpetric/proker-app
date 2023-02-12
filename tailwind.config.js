@@ -25,7 +25,6 @@ module.exports = {
         DEFAULT: '#ffb703',
       },
     },
-    extend: {},
   },
   plugins: [],
 };
