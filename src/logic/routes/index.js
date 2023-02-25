@@ -20,4 +20,4 @@ const neutralRoutes = [Broken];
 const privateRoutes = [Admin];
 const publicRoutes = [Home];
 
-export { publicRoutes, privateRoutes, neutralRoutes };
+export { neutralRoutes, privateRoutes, publicRoutes };

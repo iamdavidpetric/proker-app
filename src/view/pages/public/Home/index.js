@@ -1,2 +1,3 @@
-const Home = () => <div className='bg-primary text-red'> homepage</div>;
+const Home = () => <div className='bg-primary text-white'> homepage</div>;
+
 export default Home;
