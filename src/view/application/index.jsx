@@ -1,3 +1,9 @@
-const Application = () => <div className='bg-primary text-white'> hello word</div>;
+import Navigator from '../navigator';
+
+const Application = () => (
+  <>
+    <Navigator />
+  </>
+);
 
 export default Application;
