@@ -1,11 +1,23 @@
-import Pages from '../../view/pages';
 import Paths from './paths';
+import Pages from '../../view/pages';
 
 const Home = {
-  element: Pages.Home,
+  element: Pages.public.Home,
   path: Paths.public.HOME_PATH,
 };
 
+const Admin = {
+  element: Pages.private.Admin,
+  path: Paths.private.ADMIN_PATH,
+};
+
+const Broken = {
+  element: Pages.neutral.Broken,
+  path: Paths.neutral.BROKEN_PATH,
+};
+
+const neutralRoutes = [Broken];
+const privateRoutes = [Admin];
 const publicRoutes = [Home];
 
-export { publicRoutes };
+export { publicRoutes, privateRoutes, neutralRoutes };

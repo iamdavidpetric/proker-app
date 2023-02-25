@@ -1,17 +1,35 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 
-import { publicRoutes } from '../../logic/routes/index';
+import Paths from '../../logic/routes/paths';
+import { publicRoutes, neutralRoutes, privateRoutes } from '../../logic/routes';
 
-const Navigation = () => {
+const renderRoute = (isLoggedIn, type, route) => {
+  const Element = route.element;
+  const redirectTo = isLoggedIn ? Paths.private.DEFAULT_PATH : Paths.public.DEFAULT_PATH;
+  const shouldRedirect = (type === 'private' && !isLoggedIn) || (type === 'public' && isLoggedIn);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        {publicRoutes.map(route => (
-          <Route path={route?.path} element={route?.element} />
-        ))}
-      </Routes>
-    </BrowserRouter>
+    <Route
+      path={route?.path}
+      element={shouldRedirect ? <Navigate to={redirectTo} replace={true} /> : <Element />}
+      key={route}
+    />
   );
 };
 
-export default Navigation;
+const Navigator = ({ isLoggedIn = false }) => (
+  <BrowserRouter>
+    <Routes>
+      {publicRoutes.map(renderRoute.bind(null, isLoggedIn, 'public'))}
+      {privateRoutes.map(renderRoute.bind(null, isLoggedIn, 'private'))}
+      {neutralRoutes.map(renderRoute.bind(null, isLoggedIn, 'neutral'))}
+    </Routes>
+  </BrowserRouter>
+);
+
+Navigator.propTypes = {
+  isLoggedIn: PropTypes.bool,
+};
+
+export default Navigator;
