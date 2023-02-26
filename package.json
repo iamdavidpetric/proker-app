@@ -17,7 +17,7 @@
     "start": "env-cmd -f ./.env.development react-scripts start",
     "build-s": "env-cmd -f ./.env.staging react-scripts build",
     "build-p": "env-cmd -f ./.env.production react-scripts build",
-    "build": "env-cmd -f .env.prod react-scripts build",
+    "build": "react-scripts build",
     "clean": "rm -rf node_modules && yarn install",
     "eject": "react-scripts eject",
     "prettier:fix": "npx prettier --write ./"
