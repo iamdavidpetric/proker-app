@@ -19,4 +19,5 @@ const publicPaths = {
   HOME_PATH,
 };
 
+// eslint-disable-next-line
 export default { neutral: neutralPaths, private: privatePaths, public: publicPaths };
