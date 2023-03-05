@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const defaultConfig = {
   baseUrl: `${process.env.REACT_APP_API_URL}${process.env.REACT_APP_API_PATH_PREFIX}`,
+  timeout: parseInt(process.env.REACT_APP_TIMEOUT),
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -42,8 +43,8 @@ const Api = {
     return request;
   },
 
-  get: (path, config = defaultConfig) => {
-    const request = api.get(path, config);
+  get: (path, params = {}, config = defaultConfig) => {
+    const request = api.get(path, { ...config, params });
     request.catch(Api.catchError);
     return request;
   },

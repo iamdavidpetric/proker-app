@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply h-screen min-h-screen;
+}
+
 h1 {
   @apply text-6xl font-extrabold text-black;
 }
