@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const defaultConfig = {
   baseUrl: `${process.env.REACT_APP_API_URL}${process.env.REACT_APP_API_PATH_PREFIX}`,
-  timeout: 10_000,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -11,24 +10,24 @@ const defaultConfig = {
 
 const api = axios.create(defaultConfig);
 
-const ownInterseptors = {
+const ownInterceptors = {
   handleRequestError: error => {
     return Promise.reject(error);
   },
   handleResponseError: error => {
     return Promise.reject(error);
   },
-  handleResponse: response => {
-    return response;
+  handleResponse: config => {
+    return config;
   },
   handleRequest: config => {
     return config;
   },
 };
 
-api.interceptors.request.use(ownInterseptors.handleRequest, ownInterseptors.handleRequestError);
+api.interceptors.request.use(ownInterceptors.handleRequest, ownInterceptors.handleRequestError);
 
-api.interceptors.response.use(ownInterseptors.handleResponse, ownInterseptors.handleResponseError);
+api.interceptors.response.use(ownInterceptors.handleResponse, ownInterceptors.handleResponseError);
 
 const Api = {
   API_CALL: 'API_CALL',
@@ -37,32 +36,32 @@ const Api = {
     return error.response.data;
   },
 
-  delete: path => {
-    const request = api.delete(path);
+  delete: (path, config = defaultConfig) => {
+    const request = api.delete(path, config);
     request.catch(Api.catchError);
     return request;
   },
 
-  get: path => {
-    const request = api.get(path);
+  get: (path, config = defaultConfig) => {
+    const request = api.get(path, config);
     request.catch(Api.catchError);
     return request;
   },
 
-  patch: (path, body) => {
-    const request = api.patch(path, body);
+  patch: (path, body, config = defaultConfig) => {
+    const request = api.patch(path, body, config);
     request.catch(Api.catchError);
     return request;
   },
 
-  post: (path, body) => {
-    const request = api.post(path, body);
+  post: (path, body, config = defaultConfig) => {
+    const request = api.post(path, body, config);
     request.catch(Api.catchError);
     return request;
   },
 
-  put: (path, body) => {
-    const request = api.put(path, body);
+  put: (path, body, config = defaultConfig) => {
+    const request = api.put(path, body, config);
     request.catch(Api.catchError);
     return request;
   },

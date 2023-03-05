@@ -1,3 +1,3 @@
-const Admin = () => <div className='bg-primary text-red text-2xl'> admin</div>;
+const Admin = () => <div className='text-red bg-primary text-2xl'> admin</div>;
 
 export default Admin;

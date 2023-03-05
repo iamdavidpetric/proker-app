@@ -1,3 +1,3 @@
-const Broken = () => <div className='bg-primary text-red text-xl'> Broken</div>;
+const Broken = () => <div className='text-red bg-primary text-xl'> Broken</div>;
 
 export default Broken;

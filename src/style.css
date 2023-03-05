@@ -3,27 +3,27 @@
 @tailwind utilities;
 
 h1 {
-  @apply text-6xl text-black font-extrabold;
+  @apply text-6xl font-extrabold text-black;
 }
 
 h2 {
-  @apply text-4xl text-black font-extrabold;
+  @apply text-4xl font-extrabold text-black;
 }
 
 h3 {
-  @apply text-2xl text-black font-bold;
+  @apply text-2xl font-bold text-black;
 }
 
 h4 {
-  @apply text-xl text-black font-bold;
+  @apply text-xl font-bold text-black;
 }
 
 h5 {
-  @apply text-lg text-black font-medium;
+  @apply text-lg font-medium text-black;
 }
 
 h6 {
-  @apply text-sm text-black font-light;
+  @apply text-sm font-light text-black;
 }
 
 p {

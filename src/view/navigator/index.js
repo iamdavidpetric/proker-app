@@ -18,15 +18,13 @@ const renderRoute = (isLoggedIn, type, route) => {
 };
 
 const Navigator = ({ isLoggedIn = false }) => (
-  <div className='min-h-screen h-screen w-screen'>
-    <BrowserRouter>
-      <Routes>
-        {publicRoutes.map(renderRoute.bind(null, isLoggedIn, 'public'))}
-        {privateRoutes.map(renderRoute.bind(null, isLoggedIn, 'private'))}
-        {neutralRoutes.map(renderRoute.bind(null, isLoggedIn, 'neutral'))}
-      </Routes>
-    </BrowserRouter>
-  </div>
+  <BrowserRouter>
+    <Routes>
+      {publicRoutes.map(renderRoute.bind(null, isLoggedIn, 'public'))}
+      {privateRoutes.map(renderRoute.bind(null, isLoggedIn, 'private'))}
+      {neutralRoutes.map(renderRoute.bind(null, isLoggedIn, 'neutral'))}
+    </Routes>
+  </BrowserRouter>
 );
 
 Navigator.propTypes = {

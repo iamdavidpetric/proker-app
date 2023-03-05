@@ -4,12 +4,11 @@ import Cog from '@heroicons/react/24/outline/CogIcon';
 import Api from '../../../../logic/api';
 
 const errors = (setError, err) => setError(err);
-const loading = setIsLoading => setIsLoading(false);
 const response = (setPost, res) => setPost(res?.data);
 
 const Home = () => {
-  const [post, setPost] = useState([]);
-  const [error, setError] = useState([]);
+  const [post, setPost] = useState({});
+  const [error, setError] = useState({});
   const [counter, setCounter] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,20 +17,20 @@ const Home = () => {
     Api.get(`https://jsonplaceholder.typicode.com/posts/${counter}`)
       .then(response.bind(null, setPost))
       .catch(errors.bind(null, setError))
-      .finally(loading.bind(null, setIsLoading));
+      .finally(setIsLoading.bind(null));
   }, [counter]);
 
   return (
-    <div className='flex flex-col h-full'>
+    <div className='flex h-full flex-col'>
       <div>
         {JSON.stringify(post)}
         {JSON.stringify(error)}
       </div>
-      <div className='flex flex-col justify-center items-center '>
-        <div className='bg-primary text-white p-6 rounded-lg'>
+      <div className='flex flex-col items-center justify-center'>
+        <div className='rounded-lg bg-primary p-6 text-white'>
           {isLoading ? (
-            <div className='flex justify-center items-center bg-primary  '>
-              <Cog className='text-white w-8 h-8' />
+            <div className='flex items-center justify-center bg-primary'>
+              <Cog className='h-8 w-8 text-white' />
             </div>
           ) : (
             <button onClick={setCounter.bind(null, counter + 1)}>Click me {counter}</button>
