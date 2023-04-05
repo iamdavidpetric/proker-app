@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 
-import Paths from '../../logic/routes/paths';
-import { publicRoutes, neutralRoutes, privateRoutes } from '../../logic/routes';
+import Paths from 'logic/routes/paths';
+import { publicRoutes, neutralRoutes, privateRoutes } from 'logic/routes';
 
 const renderRoute = (isLoggedIn, type, route) => {
   const redirectTo = isLoggedIn ? Paths.private.DEFAULT_PATH : Paths.public.DEFAULT_PATH;

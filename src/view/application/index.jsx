@@ -1,4 +1,4 @@
-import Navigator from '../navigator';
+import Navigator from 'view/navigator';
 
 const Application = () => (
   <>
