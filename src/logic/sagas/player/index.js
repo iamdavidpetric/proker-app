@@ -1,7 +1,6 @@
 import Api from 'logic/api';
-import { Player } from 'logic/repositories';
-
 import { put } from 'redux-saga/effects';
+import { Player } from 'logic/repositories';
 
 import { Types as PlayerTypes } from 'logic/reducers/player';
 import { Types as ApplicationTypes } from 'logic/reducers/application';

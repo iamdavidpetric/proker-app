@@ -1,7 +1,6 @@
+import Api from 'logic/api';
 import { useEffect, useState } from 'react';
 import Cog from '@heroicons/react/24/outline/CogIcon';
-
-import Api from 'logic/api';
 
 const errors = (setError, err) => setError(err);
 const response = (setPost, res) => setPost(res?.data);

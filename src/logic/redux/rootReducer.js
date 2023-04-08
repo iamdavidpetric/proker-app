@@ -1,8 +1,8 @@
+import reducers from 'logic/reducers';
 import { createActions } from 'reduxsauce';
 import { persistCombineReducers } from 'redux-persist';
 
 import { storeConfig } from './config';
-import reducers from 'logic/reducers';
 
 export const { Types } = createActions(
   {

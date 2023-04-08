@@ -1,6 +1,5 @@
-import { createActions, createReducer } from 'reduxsauce';
-
 import { updateProps } from 'logic/helpers';
+import { createActions, createReducer } from 'reduxsauce';
 
 export const { Types, Creators } = createActions(
   {

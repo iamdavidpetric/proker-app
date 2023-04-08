@@ -1,4 +1,3 @@
-import apiMiddleware from './apiMiddleware';
 import { createLogger } from 'redux-logger';
 import { persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
@@ -6,6 +5,7 @@ import { legacy_createStore, applyMiddleware } from 'redux';
 
 import sagas from '../sagas';
 import rootReducer from './rootReducer';
+import apiMiddleware from './apiMiddleware';
 
 const loggerMiddleware = createLogger({
   collapsed: (_getState, _action, logEntry) => !logEntry.error,
