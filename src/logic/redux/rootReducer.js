@@ -1,6 +1,7 @@
-import reducers from 'logic/reducers';
 import { createActions } from 'reduxsauce';
 import { persistCombineReducers } from 'redux-persist';
+
+import reducers from 'logic/reducers';
 
 import { storeConfig } from './config';
 

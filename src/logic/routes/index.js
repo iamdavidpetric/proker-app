@@ -1,5 +1,6 @@
-import Paths from './paths';
 import Pages from 'view/pages';
+
+import Paths from './paths';
 
 const Broken = {
   element: Pages.neutral.Broken,

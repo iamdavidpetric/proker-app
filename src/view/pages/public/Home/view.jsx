@@ -1,44 +1,19 @@
-import Api from 'logic/api';
-import { useEffect, useState } from 'react';
-import Cog from '@heroicons/react/24/outline/CogIcon';
+import { useEffect } from 'react';
 
-const errors = (setError, err) => setError(err);
-const response = (setPost, res) => setPost(res?.data);
-
-const Home = ({ getPlayers }) => {
-  const [post, setPost] = useState({});
-  const [error, setError] = useState({});
-  const [counter, setCounter] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-
+const Home = ({ getPlayers, player }) => {
   useEffect(() => {
-    setIsLoading(true);
-    Api.get(`https://jsonplaceholder.typicode.com/posts/${counter}`)
-      .then(response.bind(null, setPost))
-      .catch(errors.bind(null, setError))
-      .finally(setIsLoading.bind(null));
-  }, [counter]);
+    getPlayers();
+  }, []);
 
   return (
-    <div className='flex h-full flex-col'>
-      <div>
-        {JSON.stringify(post)}
-        {JSON.stringify(error)}
-      </div>
-      <div className='flex flex-col items-center justify-center'>
-        <div className='rounded-lg bg-primary p-6 text-white'>
-          {isLoading ? (
-            <div className='flex items-center justify-center bg-primary'>
-              <Cog className='h-8 w-8 text-white' />
-            </div>
-          ) : (
-            <button onClick={setCounter.bind(null, counter + 1)}>Click me {counter}</button>
-          )}
-        </div>
-
-        <div className='rounded-lg bg-primary p-6 text-white'>
-          <button onClick={() => getPlayers()}>Saga </button>
-        </div>
+    <div className='flex h-screen w-screen flex-col bg-secondary'>
+      <div className='mt-2 flex flex-col items-center'>
+        {player.players.map(item => (
+          <div className='my-1 flex w-1/3 rounded-xl border-4 border-secondary bg-primary py-1 px-2 text-white transition-all duration-300 hover:scale-125'>
+            {item.id}
+            <div className='px-2'>{item.name}</div>
+          </div>
+        ))}
       </div>
     </div>
   );

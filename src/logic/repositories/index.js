@@ -1,3 +1,3 @@
-import Player from './player';
+import player from './player';
 
-export { Player };
+export default player;

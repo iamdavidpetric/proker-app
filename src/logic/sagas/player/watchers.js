@@ -1,4 +1,5 @@
 import { takeLatest } from 'redux-saga/effects';
+
 import { Types as PlayerTypes } from 'logic/reducers/player';
 
 import { getPlayers, getPlayersSucces } from '.';

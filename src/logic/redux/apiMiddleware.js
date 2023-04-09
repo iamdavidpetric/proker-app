@@ -3,6 +3,7 @@ import Api from 'logic/api';
 const apiMiddleware = () => {
   return next => action => {
     const { type, actions = {}, promise, ...rest } = action;
+
     if (type !== Api.API_CALL) {
       return next(action);
     }

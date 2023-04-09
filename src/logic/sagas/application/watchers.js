@@ -1,9 +1,9 @@
-import { persisted, generalFail } from '.';
+import { hydrated, generalFail } from '.';
 import { takeLatest } from 'redux-saga/effects';
 import { Types as ApplicationTypes } from 'logic/reducers/application';
 
 const applicationSagas = [
-  takeLatest(ApplicationTypes.PERSISTED, persisted),
+  takeLatest(ApplicationTypes.HYDRATED, hydrated),
   takeLatest(ApplicationTypes.GENERAL_FAIL, generalFail),
 ];
 

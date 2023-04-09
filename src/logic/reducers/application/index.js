@@ -1,11 +1,13 @@
-import { updateProp, updateProps } from 'logic/helpers';
 import { createActions, createReducer } from 'reduxsauce';
 
-export const { Types, Creators } = createActions(
+import { updateProp, updateProps } from 'logic/helpers';
+
+export const { Creators, Types } = createActions(
   {
-    persisted: null,
-    updateProps: ['props'],
     updateProp: ['key', 'payload'],
+    updateProps: ['props'],
+
+    hydrated: null,
     generalFail: ['errors'],
   },
   { prefix: 'application/' },
@@ -14,6 +16,6 @@ export const { Types, Creators } = createActions(
 const initialState = {};
 
 export default createReducer(initialState, {
-  [Types.UPDATE_PROPS]: updateProps,
   [Types.UPDATE_PROP]: updateProp,
+  [Types.UPDATE_PROPS]: updateProps,
 });

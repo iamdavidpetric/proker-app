@@ -1,7 +1,7 @@
-import Api from 'logic/api';
 import { put } from 'redux-saga/effects';
-import { Player } from 'logic/repositories';
 
+import Api from 'logic/api';
+import player from 'logic/repositories';
 import { Types as PlayerTypes } from 'logic/reducers/player';
 import { Types as ApplicationTypes } from 'logic/reducers/application';
 
@@ -9,16 +9,13 @@ export const getPlayers = function* () {
   yield put({
     type: Api.API_CALL,
     actions: {
-      success: { type: PlayerTypes.GET_PLAYERS_SUCCES },
       fail: { type: ApplicationTypes.GENERAL_FAIL },
+      success: { type: PlayerTypes.GET_PLAYERS_SUCCES },
     },
-    promise: Player.getPlayers(),
+    promise: player.getPlayers(),
   });
 };
 
 export const getPlayersSucces = function* ({ payload }) {
-  yield put({
-    type: PlayerTypes.UPDATE_PROPS,
-    props: { players: payload },
-  });
+  yield put({ type: PlayerTypes.UPDATE_PROPS, props: { players: payload } });
 };
