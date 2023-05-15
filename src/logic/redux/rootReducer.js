@@ -17,7 +17,7 @@ const appReducers = persistCombineReducers(storeConfig, {
 });
 
 const rootReducer = (state, action) => {
-  if (action && action.type === 'state/RESET') {
+  if (action && action.type === Types.RESET) {
     state = undefined;
   }
 

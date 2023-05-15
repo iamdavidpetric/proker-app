@@ -9,6 +9,7 @@ export const getPlayers = function* () {
   yield put({
     type: Api.API_CALL,
     actions: {
+      load: { key: 'getPlayersLoading', value: true },
       fail: { type: ApplicationTypes.GENERAL_FAIL },
       success: { type: PlayerTypes.GET_PLAYERS_SUCCES },
     },
