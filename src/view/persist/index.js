@@ -1,25 +1,22 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import ReactDOM from 'react-dom/client';
+import { ReduxRouter } from '@lagunovsky/redux-react-router';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import generateStore from '../../logic/redux/store';
-import Application from '../../view/application';
+import Application from 'view/application';
+import generateStore from 'logic/redux/store';
+import { history } from 'logic/redux/rootReducer';
 
 const { store, persistor } = generateStore();
 
-const renderApp = () => {
-  const root = ReactDOM.createRoot(document.getElementById('root'));
+const Persist = () => (
+  <Provider store={store}>
+    <ReduxRouter history={history}>
+      <PersistGate persistor={persistor}>
+        <Application />
+      </PersistGate>
+    </ReduxRouter>
+  </Provider>
+);
 
-  root.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Application />
-        </PersistGate>
-      </Provider>
-    </React.StrictMode>,
-  );
-};
-
-export { renderApp };
+export default Persist;

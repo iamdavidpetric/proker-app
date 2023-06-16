@@ -1,9 +1,13 @@
 import { createActions } from 'reduxsauce';
+import { createBrowserHistory } from 'history';
 import { persistCombineReducers } from 'redux-persist';
+import { createRouterReducer } from '@lagunovsky/redux-react-router';
 
 import reducers from 'logic/reducers';
 
 import { storeConfig } from './config';
+
+export const history = createBrowserHistory();
 
 export const { Types } = createActions(
   {
@@ -14,6 +18,7 @@ export const { Types } = createActions(
 
 const appReducers = persistCombineReducers(storeConfig, {
   ...reducers,
+  router: createRouterReducer(history),
 });
 
 const rootReducer = (state, action) => {

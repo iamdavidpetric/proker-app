@@ -1,4 +1,13 @@
-import './style.css';
-import { renderApp } from './view/persist';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-renderApp();
+import './style.css';
+import Persist from '../src/view/persist';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+  <React.StrictMode>
+    <Persist />
+  </React.StrictMode>,
+);
