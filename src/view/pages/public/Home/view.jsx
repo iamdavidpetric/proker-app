@@ -1,8 +1,15 @@
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-const Home = ({ getPlayers, player, getPlayersLoading }) => {
+import { mockFunction } from 'logic/helpers';
+
+const handleGetPlayers = getPlayers => {
+  getPlayers();
+};
+
+const Home = ({ getPlayers = mockFunction, player = {}, getPlayersLoading = false }) => {
   useEffect(() => {
-    getPlayers();
+    handleGetPlayers(getPlayers);
   }, []);
 
   return (
@@ -21,6 +28,12 @@ const Home = ({ getPlayers, player, getPlayersLoading }) => {
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  getPlayers: PropTypes.func,
+  getPlayersLoading: PropTypes.bool,
+  player: PropTypes.object,
 };
 
 export default Home;

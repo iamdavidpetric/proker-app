@@ -1,6 +1,7 @@
-import { hydrated, generalFail } from '.';
 import { takeLatest } from 'redux-saga/effects';
 import { Types as ApplicationTypes } from 'logic/reducers/application';
+
+import { hydrated, generalFail } from '.';
 
 const applicationSagas = [
   takeLatest(ApplicationTypes.HYDRATED, hydrated),
